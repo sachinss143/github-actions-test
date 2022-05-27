@@ -22,14 +22,14 @@ jobs:
         - if: ${{ env.envName == 'sachin-test' }}
           run: |
             echo "This is Test related env"
-            echo "Env name is ${envName} and secret is ${SQLSecret}"
           env:
             SQLSecret: Test
             
         - if: ${{ env.envName == 'sachin-qa' }}
           run: |
             echo "This is QA related env"
-            echo "Env name is ${envName} and secret is ${SQLSecret}"
           env:
             SQLSecret: QA
+          run: |
+            echo "Env name is ${envName} and secret is ${SQLSecret}"
             
