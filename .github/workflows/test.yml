@@ -1,8 +1,8 @@
 name: Test IF Block
 on: 
-   workflow_dispatch:
-     inputs:
-      rgName:
+    workflow_dispatch:
+      inputs:
+       rgName:
         type: choice
         description: Chose the resource group
         options:
@@ -18,9 +18,7 @@ env:
 jobs: 
     check_if_block:
 	  runs-on: ubuntu-latest
-      steps:
-        - name: Check If Block
-          
+      steps:          
         - if: ${{ env.envName == 'sachin-test' }}
           run: |
             echo "This is Test related env"
