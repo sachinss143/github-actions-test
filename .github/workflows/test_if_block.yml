@@ -1,4 +1,4 @@
-name: test_If_Block
+name: Test IF Block
 on: 
    workflow_dispatch:
      inputs:
