@@ -7,9 +7,10 @@ on:
         description: Chose the resource group
         options:
         - sachin-demo
-        - sachin-sandbox
+        #- sachin-sandbox
         - sachin-test
         - sachin-qa
+        #- sachin-prod
 
 env: 
     envName: ${{ github.event.inputs.rgName }}
