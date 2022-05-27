@@ -20,7 +20,6 @@ jobs:
       runs-on: ubuntu-latest
       steps:   
         - if: ${{ env.envName == 'sachin-test' }}
-        - name: Entering_TEST_Blcok
           run: |
             echo "This is Test related env"
             echo "Env name is ${envName} and secret is ${SQLSecret}"
@@ -28,7 +27,6 @@ jobs:
             SQLSecret: Test
             
         - if: ${{ env.envName == 'sachin-qa' }}
-        - name: Entering_QA_Blcok
           run: |
             echo "This is QA related env"
             echo "Env name is ${envName} and secret is ${SQLSecret}"
