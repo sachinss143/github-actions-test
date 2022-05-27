@@ -20,14 +20,10 @@ jobs:
       runs-on: ubuntu-latest
       steps:   
         - if: ${{ env.envName == 'sachin-test' }}
-          run: |
-            echo "This is Test related env"
           env:
             SQLSecret: Test
             
         - if: ${{ env.envName == 'sachin-qa' }}
-          run: |
-            echo "This is QA related env"
           env:
             SQLSecret: QA
           run: |
