@@ -1,0 +1,32 @@
+name: test If Block
+on: 
+   workflow_dispatch:
+     inputs:
+      rgName:
+        type: choice
+        description: Chose the resource group
+        options:
+        - pdm-resource-group-demo
+        - pdm-resource-group-sandbox
+        - pdm-resource-group-test
+        - pdm-resource-group-hqite
+
+env: 
+    envName: ${{ github.event.inputs.rgName }}|awk -F'-' '{print $4}'
+
+       
+jobs: 
+    check_if_block:
+      runs-on: [api, docker, linux, one-product-data-management, self-hosted]
+       
+      steps:
+        - uses: actions/checkout@v2
+        - name: Check If Block
+          
+          if: ${{ env.envName == 'test' }}
+          run: |
+            echo "This is Test related env"
+            echo "Env name is ${envName} and secret is ${SQLSecret}"
+          env:
+            SQLSecret: Test
+            
