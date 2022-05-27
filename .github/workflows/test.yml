@@ -18,7 +18,8 @@ env:
 jobs: 
     check_if_block:
       runs-on: ubuntu-latest
-      steps:          
+      steps:   
+        - name: Testing_IF_BLOCK
         - if: ${{ env.envName == 'sachin-test' }}
           run: |
             echo "This is Test related env"
