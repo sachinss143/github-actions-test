@@ -1,4 +1,4 @@
-name: test If Block
+name: test_If_Block
 on: 
    workflow_dispatch:
      inputs:
@@ -6,20 +6,18 @@ on:
         type: choice
         description: Chose the resource group
         options:
-        - pdm-resource-group-demo
-        - pdm-resource-group-sandbox
-        - pdm-resource-group-test
-        - pdm-resource-group-hqite
+        - sachin-demo
+        - sachin-sandbox
+        - sachin-test
+        - sachin-qa
 
 env: 
-    envName: ${{ github.event.inputs.rgName }}|awk -F'-' '{print $4}'
+    envName: ${{ github.event.inputs.rgName }}|awk -F'-' '{print $2}'
 
        
 jobs: 
     check_if_block:
-       
       steps:
-        - uses: actions/checkout@v2
         - name: Check If Block
           
           if: ${{ env.envName == 'test' }}
@@ -28,4 +26,11 @@ jobs:
             echo "Env name is ${envName} and secret is ${SQLSecret}"
           env:
             SQLSecret: Test
+            
+         if: ${{ env.envName == 'qa' }}
+          run: |
+            echo "This is QA related env"
+            echo "Env name is ${envName} and secret is ${SQLSecret}"
+          env:
+            SQLSecret: QA
             
