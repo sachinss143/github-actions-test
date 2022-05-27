@@ -17,6 +17,7 @@ env:
        
 jobs: 
     check_if_block:
+	  runs-on: ubuntu-latest
       steps:
         - name: Check If Block
           
