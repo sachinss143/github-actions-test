@@ -12,7 +12,7 @@ on:
         - sachin-qa
 
 env: 
-    envName: ${{ github.event.inputs.rgName }}|awk -F'-' '{print $2}'
+    envName: ${{ github.event.inputs.rgName }}
 
        
 jobs: 
@@ -21,14 +21,14 @@ jobs:
       steps:
         - name: Check If Block
           
-        - if: ${{ env.envName == 'test' }}
+        - if: ${{ env.envName == 'sachin-test' }}
           run: |
             echo "This is Test related env"
             echo "Env name is ${envName} and secret is ${SQLSecret}"
           env:
             SQLSecret: Test
             
-        - if: ${{ env.envName == 'qa' }}
+        - if: ${{ env.envName == 'sachin-qa' }}
           run: |
             echo "This is QA related env"
             echo "Env name is ${envName} and secret is ${SQLSecret}"
