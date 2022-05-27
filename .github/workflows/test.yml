@@ -21,12 +21,14 @@ jobs:
       runs-on: ubuntu-latest
       steps:   
         - if: ${{ env.envName == 'sachin-test' }}
+          run: |
+            echo "Env name is ${envName} and secret is ${SQLSecret}"
           env:
             SQLSecret: Test
             
         - if: ${{ env.envName == 'sachin-qa' }}
-          env:
-            SQLSecret: QA
           run: |
             echo "Env name is ${envName} and secret is ${SQLSecret}"
+          env:
+            SQLSecret: QA
             
